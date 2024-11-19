@@ -56,9 +56,14 @@ personnes.forEach(personnes => console.log(personnes.prenom))
 
 //Trouver la personne la plus âgée (renvoie l'objet)
 console.log("Trouver la personne la plus âgée (renvoie l'objet) :")
-let age = personnes
-    .find(personnes => Math.max(personnes.age))
-console.log(age)
+let personnePlusAgee = personnes
+    .reduce((personnePlusAgee, personne) => {
+        if (personne.age > personnePlusAgee.age){
+            return personne
+        }
+        return personnePlusAgee
+    },personnes[0])
+console.log(personnePlusAgee)
 
 //Lister les prénoms triés par ordre alphabétique
 console.log("Lister les prénoms triés par ordre alphabétique :")
@@ -78,3 +83,4 @@ console.log("Vérifier si tout le monde est majeur :")
 
 //Trouver l'âge moyen des personnes majeures
 
+//Vérifier si aux moins une personne a un prénom commençant par 'J'
